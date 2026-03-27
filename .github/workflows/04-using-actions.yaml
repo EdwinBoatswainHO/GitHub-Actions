@@ -1,0 +1,19 @@
+name: 04 0 Using Actions
+
+on: 
+    push:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+            - name: Printing Folders
+              run : ls
+
+        # 1. install dependencies 
+
+
+        # 2. run automated tests
