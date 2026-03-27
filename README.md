@@ -150,3 +150,58 @@ jobs:
 
 See [04-using-actions.yaml](.github/workflows/04-using-actions.yaml)
 
+### Event Filters & Activity Types
+
+#### Event Filters
+
+* Push
+    * branches
+    * branches-ignore
+    * tags
+    * tags-ignore
+    * paths
+    * paths-ignore
+    * ...
+
+```yaml
+Name: My NPM package workflow
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+    paths-ignore:
+      - 'docs/**'
+...
+```
+
+See [Workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpushbranchestagsbranches-ignoretags-ignore)
+
+#### Activity Types
+
+Specify which types of triggers execute our workflow
+
+* pull_request
+    * opened
+    * synchronise - new commit is pushed to HEAD ref of PR
+    * closed
+    * assigned
+    * labeled
+    * edited
+    * ...
+
+```yaml
+name: My NPM package workflow
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
+      - 'releases/**'
+...
+```
+
+> Here the `branches` refer to the base branches we want to merge our code into.
+
+See [Events that trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request)
+
