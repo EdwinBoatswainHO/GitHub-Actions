@@ -9,6 +9,7 @@ Published by Packt Publishing<br/>
 ](https://learning.oreilly.com/course/github-actions-masterclass/9781837025411/)
 
 ## Intro to yaml
+
 ```yaml
 key: "value"
 another: value
