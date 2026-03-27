@@ -8,10 +8,16 @@ on:
             debug:
                 type: boolean
                 default: false
+env:
+    MY_WORKFLOW_VAR: "This is a workflow-level variable"
+    MY_OVERWRITTEN_VAR: "This value will be overridden in the job"
 
 jobs:
     echo-data:
         runs-on: ubuntu-latest
+        env:
+            MY_JOB_VAR: "This is a job-level variable"
+            MY_OVERWRITTEN_VAR: "This value is overridden at the job level"
         steps:
             - name: Display Information
               run: |
@@ -24,4 +30,16 @@ jobs:
                 echo "Run Number: ${{ github.run_number }}"
             - name: Retrieve Variable
               run: |
-                  echo "Variable value ${{ vars.MY_VAR }}"
+                  echo "Variable value ${{ vars.MY_VAR }}
+            - name: Display Environment Variables
+              env:
+                MY_OVERWRITTEN_VAR: "This value is overridden at the step level"
+              run: |
+                echo "Workflow-level variable: $MY_WORKFLOW_VAR"
+                echo "Overwritten variable: $MY_OVERWRITTEN_VAR"
+                echo "Job-level variable: $MY_JOB_VAR"
+            - name: Display Environment Variables
+              run: |
+                echo "Workflow-level variable: $MY_WORKFLOW_VAR"
+                echo "Overwritten variable: $MY_OVERWRITTEN_VAR"
+                echo "Job-level variable: $MY_JOB_VAR"
