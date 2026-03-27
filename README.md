@@ -228,4 +228,25 @@ See [Context Availability](https://docs.github.com/en/actions/reference/workflow
 
 To reference context use: `${{ <context> }}`
 
+[06-contexts.yaml](./.github/workflows/06-contexts.yaml)
 
+## Expressions and variables
+
+* Can be used to reference information from multiple sources
+* Must use the `${{ <expression>}}` syntax
+* Can be a combination of 
+    * literal values - strings, numbers, bools or null
+    * context values
+    * Builtin functions
+* Support logical operators
+
+```yaml
+...
+    steps:
+      if: ${{ github.event_name}} == "push"
+        run: |
+          echo "Triggered by a push event"
+          echo "Running on. ${{ github.ref_name}}"
+
+...
+```
