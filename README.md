@@ -107,3 +107,19 @@ jobs:
             - name: Show the trigger
               run: echo " I have been triggered by a(n) ${{ github.event_name }} event."
 ```
+
+### Workflow Runners
+* Github-hosted (standard)
+    * Windows & Ubuntu
+        * 2 cores 8 GB ram 14 GB Disk
+    * Mac
+        * 3 cores 14 GB ram 14 GB Disk
+    * Managed Service
+    * A VM is scoped to a job, so each job receives a clean VM instance
+* Self-hosted
+    * Run workflows on almost any infrastructure of your choice
+    * All maintenance down to us
+    * Can be added at the repo, organisation or enterprise level
+    * Jobs do not necessarily have to run on clean instances
+    * Do not use in public repos
+
