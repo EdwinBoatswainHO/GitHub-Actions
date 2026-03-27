@@ -123,3 +123,29 @@ jobs:
     * Jobs do not necessarily have to run on clean instances
     * Do not use in public repos
 
+### Pre-built Actions
+```yaml
+name: My NPM package workflow
+on: push
+
+jobs:
+    node-20-releases:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/setup-node@v3
+              with:
+                node-version: 20
+            - run: npm ci
+            - run: npm test
+            - run: npm publish ...
+```
+> `actions/...` an official GitHut action
+
+* This `uses` an existing action preventing duplication and mistakes.
+* Configured `with` key-value pair
+* Can be combined with other steps
+* We can create own own for public or private use.
+* Public actions are on the [marketplace](https://github.com/marketplace?type=actions)
+
+See [04-using-actions.yaml](.github/workflows/04-using-actions.yaml)
+
