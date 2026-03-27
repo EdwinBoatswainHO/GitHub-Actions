@@ -1,6 +1,6 @@
 # GitHub Actions
 
-This Repo should contain my notes and trainings on GitHub Actions
+This Repo should contain my notes and trainings on GitHub Actions<br/>
 Initial Notes based on :
 
 [GitHub Actions Masterclass: From Beginner to Advanced<br/>
@@ -32,6 +32,7 @@ array:
     * Workflows are defined at repository level
     * Define which triggers start the workflow
     * One or more jobs
+    * `.github/workflows` directory
 * Jobs
     * Defined at the workflow level
     * Define which execution environment they are run
@@ -61,6 +62,19 @@ jobs:
 
 ```
 
+```yml
+# 01-building-blocks.yaml
+name: 01 Building Blocks
+
+on: push
+
+jobs:
+    echo-hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo Hello World
+              run: echo "Hello, World!"
+```
 
 
 
