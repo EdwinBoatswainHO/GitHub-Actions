@@ -281,3 +281,16 @@ organisation
 > Have to be accessed via the vars context 
 >
 > `echo "Hello ${{ vars.NAME }}"`
+
+```yaml
+  echo-prod:
+    runs-on: ubuntu-latest
+    # prod environment defined with GitHub UI
+    environment: prod
+    steps:
+      - name: Print Variables
+        run: |
+        # Better to do this a the workflow level to avoid duplication
+          eco "Of var: ${{ vars.UNDEFINED_VAR || 'default value' }}"
+        ...
+```
