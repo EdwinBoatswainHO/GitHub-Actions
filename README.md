@@ -93,3 +93,17 @@ jobs:
 * Schedule
     * Run as a cron job
 
+```yaml
+name: 02 - Workflow Events
+
+on: 
+    push:
+    pull_request:
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Show the trigger
+              run: echo " I have been triggered by a(n) ${{ github.event_name }} event."
+```
