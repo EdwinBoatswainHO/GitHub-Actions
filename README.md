@@ -231,7 +231,7 @@ To reference context use: `${{ <context> }}`
 [06-contexts.yaml](./.github/workflows/06-contexts.yaml)
 
 ## Expressions and variables
-
+### Expressions
 * Can be used to reference information from multiple sources
 * Must use the `${{ <expression>}}` syntax
 * Can be a combination of 
@@ -250,3 +250,34 @@ To reference context use: `${{ <context> }}`
 
 ...
 ```
+
+### Variables
+Variables are used to set and reuse non sensitive information.
+
+Simgle Workflow
+
+Hierachy
+```
+env
+.
+└──  job
+    .
+    └──  step
+```
+> Can be accessed with environment variable syntax
+>
+> `echo "Hello $NAME"`
+
+Multiple Workflows
+
+Hierachy
+```
+organisation
+.
+└── repository
+    .
+    └── environment
+```
+> Have to be accessed via the vars context 
+>
+> `echo "Hello ${{ vars.NAME }}"`
