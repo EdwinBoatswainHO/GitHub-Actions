@@ -205,3 +205,24 @@ on:
 
 See [Events that trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request)
 
+## Working with Contexts
+Access information about runs, variables, jobs and much more
+
+Contexts
+* github 
+    * commit SHA
+    * Event name
+    * ref of branch or tag triggering the workflow
+* env
+    * Variables defined in a workflow, job or step
+* inputs
+    * input properties pass via `with` or to a manually triggered workflow
+* vars
+    * Custom config variables at organisation, repo and environment levels
+* secrets
+* matrix
+* needs
+* ...
+
+See [Context Availability](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#context-availability)
+
