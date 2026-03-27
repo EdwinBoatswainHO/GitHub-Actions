@@ -76,5 +76,20 @@ jobs:
               run: echo "Hello, World!"
 ```
 
-
+## Workflow events
+[Events that trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows
+)
+* Repository Events
+    * push
+    * issues
+    * pull_request
+    * pull_request_review
+    * fork
+    * ...
+* Manual trigger 
+    * Triggered via the UI
+    * Triggered via an API call
+    * Trifggered from another workflow
+* Schedule
+    * Run as a cron job
 
