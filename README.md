@@ -329,3 +329,36 @@ jobs:
               run: exit 1
               
 ```
+
+[Full example using functions](.github/workflows/09-functions.yaml)
+
+## Controlling execution flow
+
+* Standard execution 
+
+    * Downstream job snd steps execute if and only if update jobs and steps succeed.
+
+* Conditional execution
+    * Downstream jobs and steps can be executed even if the upstream ones fail.
+
+* Non-dependent execution
+    * All jobs are executed in parallel by default
+
+* Dependent execution
+    * Jobs wait until dependencies successfully execute
+
+```yaml
+jobs:
+  job1:
+  job2:
+  job3:
+    needs:
+      - job1
+      - job2
+  job4:
+    needs: job1
+```
+
+See [Control flow example](.github/workflows/10-control-flow.yaml)
+
+    
