@@ -177,6 +177,7 @@ on:
 
 See [Workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#onpushbranchestagsbranches-ignoretags-ignore)
 
+
 #### Activity Types
 
 Specify which types of triggers execute our workflow
@@ -186,7 +187,7 @@ Specify which types of triggers execute our workflow
     * synchronise - new commit is pushed to HEAD ref of PR
     * closed
     * assigned
-    * labeled
+    * labelled
     * edited
     * ...
 
@@ -293,4 +294,38 @@ organisation
         # Better to do this a the workflow level to avoid duplication
           eco "Of var: ${{ vars.UNDEFINED_VAR || 'default value' }}"
         ...
+```
+## Functions
+
+* General Purpose
+    * contains()
+    * startsWith()
+    * endsWith()
+    * fromJSON()
+    * toJSON()
+    * ...
+* Status Check Functions
+<br/>Allow us to use the status of a workflow
+    * success()
+    * Failure()
+    * always()
+    * cancelled()
+
+See [GitHub Actions Docs - Functions](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions#functions)
+
+### Example failing step
+```yaml
+name: 09 - Using Functions
+
+on:
+    pull_request:
+
+
+jobs:
+    echo1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Failing step
+              run: exit 1
+              
 ```
