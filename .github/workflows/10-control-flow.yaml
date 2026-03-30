@@ -9,7 +9,7 @@ on:
                 default: true
 
 jobs:
-    lint-buil:
+    lint-build:
         runs-on: ubuntu-latest
         steps:
             - name: Lint and build
