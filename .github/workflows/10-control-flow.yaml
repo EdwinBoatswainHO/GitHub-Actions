@@ -52,4 +52,4 @@ jobs:
         steps:
             - name: Deploying to prod
             
-              run: echo linting and building project
+              run: echo Deploying to prod
