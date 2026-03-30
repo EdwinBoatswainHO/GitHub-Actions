@@ -23,7 +23,6 @@ jobs:
               if: ${{!inputs.pass-unit-tests}}
               run: exit 1
     deploy-nonprod:
-        - name : Deploy nonprod
         runs-on: ubuntu-latest
         needs:
             - lint-build
