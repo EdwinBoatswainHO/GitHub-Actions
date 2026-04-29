@@ -109,6 +109,39 @@ jobs:
               run: echo " I have been triggered by a(n) ${{ github.event_name }} event."
 ```
 
+### Filtering workflow events
+
+Workflow events such as push and pull can be filtered so they only act when code within a certain paths are modified.
+
+```yml
+on:
+  push:
+    branches:
+      - 'feature/**'
+    paths:
+      - 'path/to/iac/terraform_stacks/**'
+      - 'path/to/modules/**'
+```
+> The workflow above is triggered on push to feature branches affecting terraform workflows.
+
+### Workflow permissions
+The GitHub UI allows you to define what permissions the GitHub token given to the action will receive. In your action file you can explicitly state what permissions you need. If you exceed your privilege however the workflow will not run.
+
+```yml
+on:
+  push:
+    branches:
+      - 'feature/**'
+    paths:
+      - 'path/to/iac/terraform_stacks/**'
+      - 'path/to/modules/**'
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+  issues: write
+```
+
 ### Workflow Runners
 * Github-hosted (standard)
     * Windows & Ubuntu
